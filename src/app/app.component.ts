@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Post } from './post.interface';
+import { Comment } from './comment.interface';
 
 @Component({
   selector: 'app-root',
@@ -31,18 +33,4 @@ export class AppComponent {
 
 }
 
-interface Post {
-  body: string;
-  id: number;
-  title: string;
-  userId: number;
-}
-
-interface Comment {
-  body: string;
-  email: string;
-  id: number;
-  name: string;
-  postId: number;
-}
 
