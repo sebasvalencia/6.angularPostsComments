@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { ApiService } from '../../api.service';
+import { ApiService } from '../api.service';
 import { Observable } from 'rxjs';
-import { Post } from '../../post.interface';
+import { Post } from '../post.interface';
 
 @Component({
   selector: 'app-comment',
