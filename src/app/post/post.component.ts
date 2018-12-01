@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { ApiService } from '../api.service';
 import { Post } from '../post.interface';
-import { Observable } from 'rxjs';
+import { Observable, of, PartialObserver, Subject } from 'rxjs';
 
 @Component({
   selector: 'app-post',
@@ -11,12 +11,17 @@ import { Observable } from 'rxjs';
 export class PostComponent implements OnInit {
 
   posts$: Observable<Post>;
+  public observer: PartialObserver<any>;
 
   constructor(private service: ApiService) {
     this.posts$ = service.getPost();
    }
 
   ngOnInit() {
+  }
+
+  onGetIdPost(idPostComment) {
+    this.service.addId(idPostComment);
   }
 
 }

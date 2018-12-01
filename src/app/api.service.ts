@@ -1,28 +1,34 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Post } from './post.interface';
-import { Observable } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ApiService {
 
-
   postUrl = 'https://jsonplaceholder.typicode.com/posts';
   commentsUrl = 'https://jsonplaceholder.typicode.com/comments/';
 
-  comments$: Observable<Comment>;
-
+  private subjectId$ = new Subject<number>();
 
   constructor(private http: HttpClient) { }
-  // this.http.get(this.commentsUrl).subscribe(console.log);
+
   getPost() {
     return this.http.get<Post>(this.postUrl);
   }
 
-  getComment() {
-    this.comments$ = this.http.get<Comment>(this.commentsUrl);
+  getComment(id: number) {
+    return this.http.get<Comment>(this.commentsUrl + '?postId=' + id);
+  }
+
+  addId(idPostComment: number) {
+    this.subjectId$.next(idPostComment);
+  }
+
+  getID$(): Observable<number> {
+    return this.subjectId$.asObservable();
   }
 
 }

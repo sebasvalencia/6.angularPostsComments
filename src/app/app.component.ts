@@ -1,5 +1,4 @@
-import { Component } from '@angular/core';
-import { Comment } from './comment.interface';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -8,16 +7,7 @@ import { Comment } from './comment.interface';
 })
 export class AppComponent {
 
-  isComment = false;
-
   constructor() {
-
-  }
-
-  onShowComments(id) {
-    // console.log('id: ', id);
-    this.isComment = true;
-//    this.comments$ = this.http.get<Comment>(this.commentsUrl + '?postId=' + id);
   }
 
 }
