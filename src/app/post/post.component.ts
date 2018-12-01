@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ApiService } from '../api.service';
+import { Post } from '../post.interface';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-post',
@@ -7,7 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PostComponent implements OnInit {
 
-  constructor() { }
+  posts$: Observable<Post>;
+
+  constructor(private service: ApiService) {
+    this.posts$ = service.getPost();
+   }
 
   ngOnInit() {
   }

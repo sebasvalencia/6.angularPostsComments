@@ -1,7 +1,4 @@
-<h2>Posts</h2>
-<ul *ngIf="(posts$ | async) as post">
-  <li *ngFor="let postInfo of post" (click)="onShowComments(postInfo.id)">{{postInfo.title | json}}</li>
-</ul>
+<app-post></app-post>
 
 <div *ngIf="isComment">
   <h2>Comments</h2>
