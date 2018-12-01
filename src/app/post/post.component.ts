@@ -20,8 +20,8 @@ export class PostComponent implements OnInit {
   ngOnInit() {
   }
 
-  onGetIdPost(idPostComment) {
-    this.service.addId(idPostComment);
+  onGetIdPost(post: Post) {
+    this.service.addId(post);
   }
 
 }

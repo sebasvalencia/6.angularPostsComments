@@ -11,7 +11,7 @@ export class ApiService {
   postUrl = 'https://jsonplaceholder.typicode.com/posts';
   commentsUrl = 'https://jsonplaceholder.typicode.com/comments/';
 
-  private subjectId$ = new Subject<number>();
+  private subjectId$ = new Subject<Post>();
 
   constructor(private http: HttpClient) { }
 
@@ -23,11 +23,11 @@ export class ApiService {
     return this.http.get<Comment>(this.commentsUrl + '?postId=' + id);
   }
 
-  addId(idPostComment: number) {
-    this.subjectId$.next(idPostComment);
+  addId(post: Post) {
+    this.subjectId$.next(post);
   }
 
-  getID$(): Observable<number> {
+  getID$(): Observable<Post> {
     return this.subjectId$.asObservable();
   }
 

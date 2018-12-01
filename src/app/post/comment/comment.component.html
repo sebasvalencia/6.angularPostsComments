@@ -1,5 +1,8 @@
  
- <div *ngIf="isComment">
+ <div class="comment" *ngIf="isComment">
+  <h1>Post</h1>
+  <h3>{{post$.title}}</h3>
+  <h4>{{post$.body}}</h4>
   <h2>Comments</h2>
   <ul *ngIf="(comments$ | async) as comments">
     <li *ngFor="let comment of comments">{{comment.name | json}}</li>
