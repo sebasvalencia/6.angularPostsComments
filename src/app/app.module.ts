@@ -5,6 +5,8 @@ import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { PostComponent } from './post/post.component';
 import { CommentComponent } from './comment/comment.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {MatToolbarModule, MatListModule, MatDividerModule, MatCardModule } from '@angular/material';
 
 @NgModule({
   declarations: [
@@ -13,7 +15,11 @@ import { CommentComponent } from './comment/comment.component';
     CommentComponent
   ],
   imports: [
-    BrowserModule, HttpClientModule
+    BrowserModule, HttpClientModule, BrowserAnimationsModule,
+    MatToolbarModule,
+    MatListModule,
+    MatDividerModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]

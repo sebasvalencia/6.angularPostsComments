@@ -1,6 +1,23 @@
+
+
 .comment{
-    border:1px solid red;
+    border:1px solid silver;
     width: 500px;
     display: inline-block;
+    margin-left: 50px;
 }
 
+.card {
+    max-width: 400px;
+    margin: 10px;
+  }
+
+  .title{
+    font-size: 30px;
+    
+  }
+
+  h3{
+    font-family: Roboto;
+  }
+  
